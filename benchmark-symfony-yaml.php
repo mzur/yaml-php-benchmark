@@ -1,20 +1,20 @@
 <?php
 
-include 'vendor/symfony/yaml/Unescaper.php';
-include 'vendor/symfony/yaml/Inline.php';
-include 'vendor/symfony/yaml/Parser.php';
-include 'vendor/symfony/yaml/Dumper.php';
-include 'vendor/symfony/yaml/Escaper.php';
-include 'vendor/symfony/yaml/Yaml.php';
+include __DIR__.'/vendor/symfony/yaml/Unescaper.php';
+include __DIR__.'/vendor/symfony/yaml/Inline.php';
+include __DIR__.'/vendor/symfony/yaml/Parser.php';
+include __DIR__.'/vendor/symfony/yaml/Dumper.php';
+include __DIR__.'/vendor/symfony/yaml/Escaper.php';
+include __DIR__.'/vendor/symfony/yaml/Yaml.php';
 
 use Symfony\Component\Yaml\Yaml;
 
-$sources = glob('yaml/*.yml');
+$sources = glob(__DIR__.'/yaml/*.yml');
 
 foreach($sources as $source){
 	benchmark(1000, function() use ($source){
-		Yaml::parse($source);
+		Yaml::parseFile($source);
 	});
-	$data = Yaml::parse($source);
-	file_put_contents('result/symfony-yaml/' . basename($source), Yaml::dump($data));
+	$data = Yaml::parseFile($source);
+	file_put_contents(__DIR__.'/result/symfony-yaml/' . basename($source), Yaml::dump($data));
 }

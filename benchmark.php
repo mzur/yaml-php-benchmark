@@ -15,10 +15,10 @@ function benchmark($runs, $callable){
 }
 
 echo "PECL YAML\n";
-include 'benchmark-pecl-yaml.php';
+include __DIR__.'/benchmark-pecl-yaml.php';
 
 echo "\nSymfony YAML\n";
-include 'benchmark-symfony-yaml.php';
+include __DIR__.'/benchmark-symfony-yaml.php';
 
 echo "\nSpyc YAML\n";
-include 'benchmark-spyc.php';
+include __DIR__.'/benchmark-spyc.php';

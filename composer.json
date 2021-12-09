@@ -1,7 +1,7 @@
 {
     "require": {
         "ext-yaml": "*",
-        "symfony/yaml": "2.*",
+        "symfony/yaml": "*",
         "mustangostang/spyc": "*"
     }
 }
