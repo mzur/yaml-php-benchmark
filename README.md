@@ -28,25 +28,38 @@ $ composer install
 The test pointed out that Symfony/Yaml is by far the *slowest* parser:
 
 ```bash
+$ php --version
+PHP 7.4.3 (cli) (built: Oct 25 2021 18:20:54) ( NTS )
+Copyright (c) The PHP Group
+Zend Engine v3.4.0, Copyright (c) Zend Technologies
+    with Zend OPcache v7.4.3, Copyright (c), by Zend Technologies
+    with Xdebug v2.9.2, Copyright (c) 2002-2020, by Derick Rethans
+
 $ php -f ./benchmark.php
 
 PECL YAML
-Total: 0.24177002906799
-Average: 0.00024177002906799
-Total: 0.21856594085693
-Average: 0.00021856594085693
+Total: 0.065805912017822
+Average: 6.5805912017822E-5
+Total: 0.046339988708496
+Average: 4.6339988708496E-5
+Total: 0.031901121139526
+Average: 3.1901121139526E-5
 
 Symfony YAML
-Total: 5.2555449008942
-Average: 0.0052555449008942
-Total: 2.9924311637878
-Average: 0.0029924311637878
+Total: 1.6955361366272
+Average: 0.0016955361366272
+Total: 1.0237720012665
+Average: 0.0010237720012665
+Total: 0.59659910202026
+Average: 0.00059659910202026
 
 Spyc YAML
-Total: 3.5280780792236
-Average: 0.0035280780792236
-Total: 2.0810060501099
-Average: 0.0020810060501099
+Total: 1.2520709037781
+Average: 0.0012520709037781
+Total: 0.74660110473633
+Average: 0.00074660110473633
+Total: 0.53867197036743
+Average: 0.00053867197036743
 ```
 *In seconds per a 1000 runs*
 
